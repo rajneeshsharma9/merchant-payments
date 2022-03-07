@@ -10,7 +10,7 @@ class Transaction < ApplicationRecord
   belongs_to :merchant
 
   # Validations
-  validates :uuid, :customer_email, :status, presence: true
+  validates :uuid, :customer_email, :status, :type, presence: true
   validates :uuid, uniqueness: true, allow_blank: true
   # Use validations for: uuid, amount > 0, customer_email, status
   validate :check_if_active_merchant

@@ -1,0 +1,9 @@
+<tr>
+  <th scope="row"><%= merchant.name %></th>
+  <td><%= merchant.email %></td>
+  <td><%= merchant.admin? %></td>
+  <td><%= merchant.total_transaction_sum %></td>
+  <td data-type="actions-container">
+    <%= link_to 'Destroy', [merchant], method: :delete, data: { confirm: 'Are you sure?' }, class: 'destroy-link' %>
+  </td>
+</tr>

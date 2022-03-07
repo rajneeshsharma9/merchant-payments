@@ -1,24 +1,42 @@
-# README
+# merchant-payments
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Payment System Task - A system to allow merchants to take payments using a single point and doing other functionalities like refund, authorize, charge etc.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby - 3.0.2
+- Rails - 6.1.4.4
+- Postgresql - 9.6.1
 
-* System dependencies
+## Installation
 
-* Configuration
+- Clone this repository.
+- Install all the necessary dependencies using the bundler.
+  ```
+  bundle install
+  ```
+- Create a database for the application using:
 
-* Database creation
+  ```
+  bundle exec rake db:create
+  ```
+- Now start your rails application using:
 
-* Database initialization
+  ```
+  rails server
+  ```
+  
+- Run tests using:
 
-* How to run the test suite
+  ```
+  rspec spec
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Important taks
 
-* Deployment instructions
+### Importing merchants from CSV
+```rake merchants:import_from_csv[file_url]```
 
-* ...
+### Delete transactions older than 1 hour
+```rake transactions:destroy_stale```
+

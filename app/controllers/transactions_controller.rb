@@ -27,9 +27,7 @@ class TransactionsController < ApplicationController
   def find_merchant_by_email
     @merchant = Merchant.find_by(email: params[:merchant][:email]) if params[:merchant]
     if @merchant.nil?
-      respond_to do |format|
-        format.json { render json: { error: true }, status: 404 }
-      end
+      render json: { error: true, message: 'Merchant not found'  }, status: 404
     end
   end
 

@@ -5,7 +5,7 @@ class Charge < Transaction
   has_one :refund, class_name: 'Refund', foreign_key: :transaction_id
 
   # Callbacks
-  before_validation :copy_authorized_transaction_data
+  before_validation :copy_authorized_transaction_data, if: ->{ authorized_transaction.present? }
   before_save :check_parent_transaction_status
   after_save :update_merchant_transaction_sum, if: :approved?
 
